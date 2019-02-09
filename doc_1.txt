@@ -1,1 +1,1 @@
-print('making the conflict' +' again')
+print('making the conflict' + ' again')
