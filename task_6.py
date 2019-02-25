@@ -46,25 +46,15 @@ def simple_input():
     while True:
         s = input('input an integer please: ')
         try:
-            i = int(s)
-        except ValueError:
-            continue
-        else:
-            return s
-            break
-
-
-##5
-def simple_input():
-    while True:
-        s = input('input an integer please: ')
-        try:
-            i = int(s)
+            i = float(s)
         except ValueError:
             continue
         else:
             return i
             break
+
+##5
+
 sides = []
 for i in range(3):
     sides.append(simple_input())
@@ -82,14 +72,15 @@ def triangle_type(listsides):
         print('triagle could not be built')
 
 triangle_type(sides)
+
 ##6
 def distance(x1,y1,x2,y2):
     d = ((x2-x1)**2 + (y2-y1)**2)**1/2
     return d
 
-x1 = int(input('give me an integer X1: '))
-y1 = int(input('give me an integer Y1: '))
-x2 = int(input('give me an integer X2: '))
-y2 = int(input('give me an integer Y2: '))
+x1 = simple_input()
+y1 = simple_input()
+x2 = simple_input()
+y2 = simple_input()
 
 print(distance(x1, y1, x2, y2))
