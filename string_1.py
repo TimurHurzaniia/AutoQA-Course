@@ -1,8 +1,6 @@
 def donuts(count):
     if count >= 10:
         count = 'many'
-        s = 'Number of donuts: {}'.format(count)
-        return s
     s = 'Number of donuts: {}'.format(count)
     return s
 
@@ -23,7 +21,7 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    if len(a) and len(b) >= 2:
+    if len(a) >=2 and len(b) >= 2:
         res = (b[:2] + a[2:]) + ' ' + (a[:2] + b[2:])
         return res
     res = '!!!give me longer string!!!'
@@ -35,7 +33,7 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
+    print('{}got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
 
 
 def main():

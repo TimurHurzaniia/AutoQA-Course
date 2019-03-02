@@ -1,9 +1,8 @@
 def match_ends(words):
     n = 0
     for i in words:
-        if len(i) >= 2:
-            if i[0] == i[-1]:
-                n += 1
+        if len(i) >= 2 and i[0] == i[-1]:
+            n += 1
     return n
 
 
@@ -29,7 +28,7 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
+    print(f'{prefix} got: {repr(got)} expected: {repr(expected)}')
 
 
 def main():
