@@ -65,7 +65,7 @@ class ITEmployee(Employee):
     def add_skill(self, skill):
         self.skills.append(skill)
 
-    def ad_skills(self, *args):
+    def add_skills(self, *args):
         self.skills.extend(args)
 
 
