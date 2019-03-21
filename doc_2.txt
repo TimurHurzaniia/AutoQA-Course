@@ -1,1 +1,3 @@
-print('making the conflict'+' again')
+1: print('making the conflict'+' again1')
+2: print('making the conflict'+' again2')
+3: print('making the conflict'+' again3')
