@@ -3,7 +3,7 @@ import imaplib
 
 def read_my_mail():
     from_mail = 'gurzaniya@gmail.com'
-    pasword = '2786ZubastyGibon'
+    pasword = '**************'
     server = 'imap.gmail.com'
     port = 993
 
