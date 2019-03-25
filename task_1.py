@@ -2,7 +2,7 @@ import http.client
 import json
 #1
 conect = http.client.HTTPConnection('pulse-rest-testing.herokuapp.com')
-body = json.dumps({'name': 'Timur','type': 'Tester', 'level': 10, 'book': 145})
+body = json.dumps({'name': 'Timur','type': 'Tester', 'level': 10, 'book': 381})
 headers = {'Content-type': 'application/json'}
 conect.request('POST', '/roles', body=body, headers=headers)
 response = conect.getresponse()
@@ -18,15 +18,17 @@ conect.request('GET', '/roles/')
 response = conect.getresponse()
 items_list = json.loads(response.read())
 for i in items_list:
-    if i['name'] == 'Timur':
-        print(i['id'], end=' ')
+    if i['id'] == created_id:
+        print(i['id'], i['name'])
 
 #4
-conect.request('PUT', '/roles/{}'.format(items_list[0]['id']), body = json.dumps({'name': 'Changed'}), headers= headers)
-response = conect.getresponse()
-print('\n', response.status, response.reason)
+for i in items_list:
+    if i['id'] == created_id:
+        conect.request('PUT', '/roles/{}'.format(i['id']), body = json.dumps({'name': 'Changed'}), headers= headers)
+        response = conect.getresponse()
+        print('\n', response.status, response.reason, response.read())
 #5
-conect.request('GET', '/roles/{}'.format(items_list[0]['id']))
+conect.request('GET', '/roles/{}'.format(created_id))
 response = conect.getresponse()
 if json.loads(response.read())['name'] == 'Changed':
     print(response.status, response.reason, 'ITEM name WAS CHANGED')
@@ -35,11 +37,11 @@ conect.request('GET', '/roles/')
 response = conect.getresponse()
 items_list = json.loads(response.read())
 for i in items_list:
-    if i['name'] == 'Changed':
-        print(i['id'], end=' ')
+    if i['id'] == created_id:
+        print(i)
 #7
 for i in items_list:
-    if i['name'] == 'Changed' or i['name'] == 'Timur':
+    if i['id'] == created_id:
         conect.request('DELETE', '/roles/{}'.format(i['id']))
         response = conect.getresponse()
-        print(response.status, response.reason, 'ITEM name WAS DELETED')
+        print(response.status, response.reason, response.read(), 'ITEM name WAS DELETED')
